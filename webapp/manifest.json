@@ -1,0 +1,139 @@
+{
+  "_version": "1.49.0",
+  "sap.app": {
+    "id": "ui5fhirleistungserfassung",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.9.7",
+      "toolsId": "f4e1b6b3-f302-4aa2-a944-c6c5b40f8351"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "https://server.fire.ly/r4",
+        "type": "FHIR",
+        "settings": {
+
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.114.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ui5fhirleistungserfassung.i18n.i18n"
+        }
+      },
+      "": {
+				"type": "sap.fhir.model.r4.FHIRModel",
+				"dataSource": "mainService",
+				"settings": {
+					"groupProperties": {
+					},
+					"defaultQueryParameters": {
+						"_total": "accurate"
+					}
+				}
+			}
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "ui5fhirleistungserfassung.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteLeistungserfassung",
+          "pattern": ":?query:",
+          "target": [
+            "TargetLeistungserfassung"
+          ]
+        },
+        {
+          "name": "Patient",
+          "pattern": "patient",
+          "target": [
+            "Patient"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetLeistungserfassung": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Leistungserfassung",
+          "viewName": "Leistungserfassung"
+        },
+        "Patient": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": true,
+          "viewId": "Patient",
+          "viewName": "Patient"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "ui5fhirleistungserfassung.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

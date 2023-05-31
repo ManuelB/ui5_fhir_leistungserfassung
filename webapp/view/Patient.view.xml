@@ -1,0 +1,25 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" controllerName="ui5fhirleistungserfassung.controller.Patient"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="Patient">
+        <content>
+            <Input id="patient-id" type="Text" />
+            <Button text="Suchen" press="onPatientSearch" />
+            <form:SimpleForm>
+                <Label text="Vorname" />
+                <Input type="Text" value="{name/0/given[0]}" />
+                <Label text="Nachname" />
+                <Input type="Text" value="{name/0/family}" />
+                <Label text="Geschlecht" />
+                <ComboBox selectedKey="{gender}">
+                    <core:Item key="male" text="Männlich" />
+                    <core:Item key="female" text="Weiblich" />
+                    <core:Item key="divers" text="Divers" />
+                    <core:Item key="unknown" text="Unbekannt" />
+                </ComboBox>
+                <Label text="Geburtsdatum" />
+                <DateTimePicker dateValue="{path: 'birthDate', formatter: '.fnToDate'}"></DateTimePicker>
+            </form:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>
