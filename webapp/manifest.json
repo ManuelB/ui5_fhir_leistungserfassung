@@ -80,6 +80,11 @@
 			}
     },
     "resources": {
+			"js": [
+				{
+					"uri": "./lib/zxing-0.19.1.min.js"
+				}
+      ],
       "css": [
         {
           "uri": "css/style.css"
@@ -110,6 +115,13 @@
           "target": [
             "Patient"
           ]
+        },
+        {
+          "name": "Group",
+          "pattern": "group",
+          "target": [
+            "Group"
+          ]
         }
       ],
       "targets": {
@@ -126,6 +138,13 @@
           "clearControlAggregation": true,
           "viewId": "Patient",
           "viewName": "Patient"
+        },
+        "Group": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": true,
+          "viewId": "Group",
+          "viewName": "Group"
         }
       }
     },

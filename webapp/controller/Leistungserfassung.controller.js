@@ -13,6 +13,9 @@ sap.ui.define([
             },
             onPatientPress: function(oEvent) {
                 this.getOwnerComponent().getRouter().navTo("Patient");
+            },
+            onGroupPress: function(oEvent) {
+                this.getOwnerComponent().getRouter().navTo("Group");
             }
         });
     });

@@ -4,7 +4,7 @@
     <Page id="page" title="{i18n>title}">
         <content>
             <GenericTile header="Patient" headerImage="sap-icon://wounds-doc" press="onPatientPress" />
-            <GenericTile header="Gruppe" headerImage="sap-icon://group" />
+            <GenericTile header="Gruppe" headerImage="sap-icon://group" press="onGroupPress" />
         </content>
     </Page>
 </mvc:View>

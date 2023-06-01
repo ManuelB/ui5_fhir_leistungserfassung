@@ -1,0 +1,76 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" controllerName="ui5fhirleistungserfassung.controller.Group"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:scan="ui5fhirleistungserfassung.control"
+    xmlns="sap.m">
+    <Page id="page" title="Guppenleistungserfassung">
+        <content>
+            <Panel>
+                <Table items="{Accounts>/Accounts}">
+                    <headerToolbar>
+                        <Toolbar>
+                            <ToolbarSpacer />
+                            <Button text="Patientenfall hinzufügen" icon="sap-icon://add" press="onOpenCaseScanDialog" />
+                        </Toolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column>
+                            <Text text="Name" />
+                        </Column>
+                        <Column>
+                            <Text text="Geburtsdatum" />
+                        </Column>
+                        <Column>
+                            <Text text="Fallnummer" />
+                        </Column>
+                    </columns>
+                    <ColumnListItem>
+                        <Text text="{Accounts>name}" />
+                        <Text text="{Accounts>birthDate}" />
+                        <Text text="{Accounts>accountNumber}" />
+                    </ColumnListItem>
+                </Table>
+            </Panel>
+            <Panel>
+                <Table items="{Accounts>/ChargeItems}">
+                    <headerToolbar>
+                        <Toolbar>
+                            <ToolbarSpacer />
+                            <Button text="Leistung hinzufügen" icon="sap-icon://add" press="onOpenChargeItemScanDialog" />
+                        </Toolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column>
+                            <Text text="Text" />
+                        </Column>
+                        <Column>
+                            <Text text="Leistungsdatum" />
+                        </Column>
+                        <Column>
+                            <Text text="Mitarbeiter/Rolle" />
+                        </Column>
+                        <Column>
+                            <Text text="Leistung" />
+                        </Column>
+                    </columns>
+                    <ColumnListItem>
+                        <Text text="{Accounts>code/text}" />
+                        <Text text="{Accounts>occurrenceDateTime}" />
+                        <Text text="{Accounts>performer/actor}" />
+                        <Text text="{Accounts>definitionCanonical}" />
+                    </ColumnListItem>
+                </Table>
+            </Panel>
+        </content>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button text="Leistungen in SAP IS-H speichern" icon="sap-icon://save" type="Accept" press="onSave" />
+            </Toolbar>
+        </footer>
+    </Page>
+    <mvc:dependents>
+        <scan:ExtScanner id="accountScanner" valueScanned="onAccountScanned" />
+        <scan:ExtScanner id="chargeItemScanner" valueScanned="onChargeItemScanned" />
+ 
+    </mvc:dependents>
+</mvc:View>
