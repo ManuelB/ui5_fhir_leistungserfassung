@@ -17,7 +17,7 @@ sap.ui.define([
                         {
                             "name": "Manuel Blechschmidt",
                             "birthDate": "1986-07-16",
-                            "accountNumber": "000123456"
+                            "accountNumber": "0020550837"
                         }
                     ],
                     "ChargeItems": [
@@ -39,7 +39,7 @@ sap.ui.define([
             },
             onAccountScanned: function (oEvent) {
                 const sBarCode = oEvent.getParameter("value");
-                this.getView().getModel().sendGetRequest("/Account/example", {
+                this.getView().getModel().sendGetRequest("/Account/" + sBarCode, {
                     "success": (oData) => {
                         const oAccounts = this.oAccountModel.getProperty("/Accounts");
                         oAccounts.push({
@@ -53,7 +53,7 @@ sap.ui.define([
             },
             onChargeItemScanned: function (oEvent) {
                 const sBarCode = oEvent.getParameter("value");
-                this.getView().getModel().sendGetRequest("/ChargeItemDefinition/ebm", {
+                this.getView().getModel().sendGetRequest("/ChargeItemDefinition/"+sBarCode, {
                     "success": (oData) => {
                         const oChargeItems = this.oAccountModel.getProperty("/ChargeItems");
                         oChargeItems.push({
@@ -64,7 +64,6 @@ sap.ui.define([
                         });
                         this.oAccountModel.setProperty("/ChargeItems", oChargeItems);
                     }
-                
                 });
             },
             onSave: function(oEvent) {

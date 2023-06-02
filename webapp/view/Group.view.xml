@@ -1,6 +1,7 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" controllerName="ui5fhirleistungserfassung.controller.Group"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns:scan="ui5fhirleistungserfassung.control"
+    xmlns:core="sap.ui.core"
     xmlns="sap.m">
     <Page id="page" title="Guppenleistungserfassung">
         <content>
@@ -35,7 +36,8 @@
                     <headerToolbar>
                         <Toolbar>
                             <ToolbarSpacer />
-                            <Button text="Leistung hinzufügen" icon="sap-icon://add" press="onOpenChargeItemScanDialog" />
+                            <Button text="Leistung aus Katalog hinzufügen" icon="sap-icon://add" press="onOpenChargeItemScanDialog" />
+                            <Button text="Leistung scannen" icon="sap-icon://add" press="onOpenChargeItemScanDialog" />
                         </Toolbar>
                     </headerToolbar>
                     <columns>
@@ -67,10 +69,10 @@
                 <Button text="Leistungen in SAP IS-H speichern" icon="sap-icon://save" type="Accept" press="onSave" />
             </Toolbar>
         </footer>
-    </Page>
-    <mvc:dependents>
+    <dependents>
         <scan:ExtScanner id="accountScanner" valueScanned="onAccountScanned" />
         <scan:ExtScanner id="chargeItemScanner" valueScanned="onChargeItemScanned" />
- 
-    </mvc:dependents>
+        <core:Fragment fragementName="ui5leistungserfassung.view.fragment.ChargeItemDefinitionDialog" type="XML"  />
+    </dependents>
+    </Page>
 </mvc:View>

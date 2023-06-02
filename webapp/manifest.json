@@ -17,7 +17,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "https://server.fire.ly/r4",
+        "uri": "/sap/is-h/fhir/ZBG_Murnau",
         "type": "FHIR",
         "settings": {
 
@@ -68,22 +68,22 @@
         }
       },
       "": {
-				"type": "sap.fhir.model.r4.FHIRModel",
-				"dataSource": "mainService",
-				"settings": {
-					"groupProperties": {
-					},
-					"defaultQueryParameters": {
-						"_total": "accurate"
-					}
-				}
-			}
+        "type": "sap.fhir.model.r4.FHIRModel",
+        "dataSource": "mainService",
+        "settings": {
+          "groupProperties": {
+          },
+          "defaultQueryParameters": {
+            "_total": "accurate"
+          }
+        }
+      }
     },
     "resources": {
-			"js": [
-				{
-					"uri": "./lib/zxing-0.19.1.min.js"
-				}
+      "js": [
+        {
+          "uri": "./lib/zxing-0.19.1.min.js"
+        }
       ],
       "css": [
         {
